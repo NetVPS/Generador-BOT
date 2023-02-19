@@ -4,7 +4,7 @@ coo=1
 IVAR="/etc/http-instas"
 SCPT_DIR="/etc/SCRIPT"
 rm -f gera*
-source <(curl -sSL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/msg-bar/msg) >/dev/null
+source <(curl -sSL https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/msg) >/dev/null
 #!/bin/bash
 
 # menu maker (opciones 1, 2, 3,.....)
@@ -202,7 +202,7 @@ del() {
 }
 
 [[ -d /bin/ejecutar ]] && {
-    [[ -e /bin/ejecutar/msg ]] || wget -q -O /bin/ejecutar/msg https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/msg-bar/msg
+    [[ -e /bin/ejecutar/msg ]] || wget -q -O /bin/ejecutar/msg https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/msg
 } || mkdir /bin/ejecutar
 cor[0]="\033[0m"
 cor[1]="\033[1;34m"
@@ -251,7 +251,7 @@ install_ini() {
         service apache2 restart >/dev/null 2>&1 &
     }
     [[ $(dpkg --get-selections | grep -w "apache2" | head -1) ]] || ESTATUS=$(echo -e "\033[91mFALLO DE INSTALACION") &>/dev/null
-    [[ $(dpkg --get-selections | grep -w "apache2" | head -1) ]] && ESTATUS=$(echo -e "\e[3;32mINSTALADO\e[0m") &>/dev/null
+    [[ $(dpkg --get-selections | grep -w "apache2" | head -1) ]] && ESTATUS=$(echo -e "\033[92mINSTALADO") &>/dev/null
     echo -e "\033[97m  # apt-get install apache2.............. $ESTATUS "
     #curl
     [[ $(dpkg --get-selections | grep -w "curl" | head -1) ]] || apt-get install curl -y &>/dev/null
@@ -316,15 +316,14 @@ check_ip() {
 }
 function_verify() {
     unset keybot
-    echo -e "\033[7;49;35m    ${TTini} GEN ChumoGH${TTcent}VPS ${TTfin}      \033[0m"
     msg -bar
     [[ ! -e /etc/nivbot ]] && echo >/etc/nivbot
-    echo -e " SOLICITA KEY DE AUTORIZACION UNICA "
+    echo -e "\e[31m          BOTGEN LIBRE TE LO VENDIERON ?\e[32m"
     [[ "$(echo "$(cat </etc/nivbot)")" < "3" ]] && {
         [[ -e /bin/downloadbot ]] && {
-            [[ -z $(cat </bin/downloadbot) ]] && read -p " INGRESA KEY DE AUTORIZACION : " keybot || unset keybot
+            [[ -z $(cat </bin/downloadbot) ]] && read -p " DIGITE SI O NO : " keybot || unset keybot
         }
-    } || read -p " Key de Autorizacion : " keybot
+    } || read -p " DIGITE SI O NO: " keybot
     [[ -z $keybot ]] && {
         [[ -e /bin/downloadbot ]] && link="$(cat </bin/downloadbot)" || link='https://raw.githubusercontent.com'
         [[ $link = 'https://raw.githubusercontent.com' ]] && echo "CONTROL MEDIANTE GitHub" || echo "CONTROL EXTERNO"
@@ -365,6 +364,8 @@ function_verify() {
         } || echo "1" >/etc/nivbot
         echo $Key >/etc/valkey && chmod +x /etc/valkey
         [[ -e /usr/bin/downBase ]] || echo 'https://www.dropbox.com/s/yqhjmr7o3342viv/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
+        [[ -e /bin/ShellBot.sh ]] && wget -O /bin/ShellBot.sh https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/ShellBot.sh && +rwx /bin/ShellBot.sh
+
         sleep 3s
     }
 
@@ -451,7 +452,7 @@ atualiza_fun() {
     done
     mkdir -p /etc/SCRIPT
     mv -f /root/update/* /etc/SCRIPT/
-    wget -q -O /usr/bin/gerar https://raw.githubusercontent.com/NetVPS/Multi-Script/main/ChuGH-5.7u/Bot/gerador.sh && chmod +rwx /usr/bin/gerar
+    wget -q -O /usr/bin/gerar https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Menu-Bash/gerador.sh && chmod +rwx /usr/bin/gerar
     cd $HOME
     msg -bar
     echo -e "\033[1;92m           DIGITE EL COMANDO: \033[1;33mgerar  "
