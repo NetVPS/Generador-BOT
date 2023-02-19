@@ -351,7 +351,7 @@ function_verify() {
         clear && clear
         msg -bar
         echo -e "\e[32m      LA IP $(wget -qO- ipv4.icanhazip.com) ESTA AUTORIZADA!"
-        [[ -e /usr/bin/downBase ]] || echo 'https://www.dropbox.com/s/yqhjmr7o3342viv/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
+        [[ -e /usr/bin/downBase ]] || echo 'https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
         v1=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-Script/main/ChuGH-5.7u/adm-lite/v-local.log")
         [[ ! -e /bin/downloadbot ]] && {
             [[ $link = 'https://raw.githubusercontent.com' ]] && echo "https://raw.githubusercontent.com" >/bin/downloadbot || echo "$(ofus $keybot)" >/bin/downloadbot
@@ -363,7 +363,7 @@ function_verify() {
             echo $lv >/etc/nivbot
         } || echo "1" >/etc/nivbot
         echo $Key >/etc/valkey && chmod +x /etc/valkey
-        [[ -e /usr/bin/downBase ]] || echo 'https://www.dropbox.com/s/yqhjmr7o3342viv/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
+        [[ -e /usr/bin/downBase ]] || echo 'https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
         [[ -e /bin/ShellBot.sh ]] && wget -O /bin/ShellBot.sh https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/ShellBot.sh >/dev/null && chmod +rwx /bin/ShellBot.sh
 
         sleep 3s
@@ -414,7 +414,7 @@ ofus() {
 }
 
 DOWS() {
-    wget -O /root/lista https://www.dropbox.com/s/yqhjmr7o3342viv/lista
+    wget -O /root/lista https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/lista
     wget --no-check-certificate -i $HOME/lista
 }
 
