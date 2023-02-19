@@ -62,7 +62,7 @@ permited=$(curl -sSL "${link}/ChumoGH/VPSbot/main/TeleBotGen/Control/Control-Bot
 } || {
 permited=$(curl -sSL "$(ofus $keybot)/ChumoGH/VPSbot/main/TeleBotGen/Control/Control-Bot")
 }
-  [[ $(echo $permited|grep "${IP}") = "" ]] && {
+  [[ $(echo $permited|grep "${IP}") = "" ]] || {
   clear
   echo -e "\n\n\n\e[31m====================================================="
   echo -e "\e[31m      ¡LA IP $(wget -qO- ipv4.icanhazip.com) FUE RECHAZADA!"
@@ -71,7 +71,7 @@ permited=$(curl -sSL "$(ofus $keybot)/ChumoGH/VPSbot/main/TeleBotGen/Control/Con
   echo -e "\e[31m=====================================================\n\n\n\e[0m"
   [[ -e "/bin/ShellBot.sh" ]] && rm -f /bin/ShellBot.sh
     exit 1
-  } || {
+  } && {
  ### INTALAR VERCION DE SCRIPT
   clear
   echo -e "\n\n\n\e[32m====================================================="
@@ -564,8 +564,8 @@ case ${selection} in
 4) ini_res;;
 5) msj_prueba;;
 6) ayuda_fun;;
-#7) source <(curl -sSL https://www.dropbox.com/s/f5mlwun3hkpq6k8/bot-permited.sh) ;;
-#8) act-bot ;;
+7) source <(curl -sSL https://www.dropbox.com/s/f5mlwun3hkpq6k8/bot-permited.sh) ;;
+8) act-bot ;;
 7) lim-bot ;;
 8) change_pay;;
 9) respon;;
