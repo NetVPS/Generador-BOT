@@ -364,7 +364,7 @@ function_verify() {
         } || echo "1" >/etc/nivbot
         echo $Key >/etc/valkey && chmod +x /etc/valkey
         [[ -e /usr/bin/downBase ]] || echo 'https://www.dropbox.com/s/yqhjmr7o3342viv/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
-        [[ -e /bin/ShellBot.sh ]] && wget -O /bin/ShellBot.sh https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/ShellBot.sh && +rwx /bin/ShellBot.sh
+        [[ -e /bin/ShellBot.sh ]] && wget -O /bin/ShellBot.sh https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/ShellBot.sh >/dev/null && chmod +rwx /bin/ShellBot.sh
 
         sleep 3s
     }
