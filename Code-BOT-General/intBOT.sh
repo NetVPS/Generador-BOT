@@ -241,7 +241,7 @@ clear
 msg -bar
 echo -e "\033[1;33mDescargando archivos... ESPERE "
 msg -bar
-wget -q --no-check-certificate -O $HOME/files.tar https://github.com/NetVPS/Generador-BOT/raw/main/Bot/files.tar
+wget -q --no-check-certificate -O $HOME/files.tar https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Code-BOT-Comandos/files.tar
 [[ -d $HOME/update ]] && rm -rf $HOME/update/* || mkdir $HOME/update
 [[ -e $HOME/files.tar ]] && tar xpf $HOME/files.tar -C $HOME/update && rm -f $HOME/files.tar
 echo 999 > ${CIDdir}/limit
