@@ -387,7 +387,8 @@ cor[0]="\033[1;37m"
 fun_filez() {
     fup="$HOME/update"
     echo "$1" >>$HOME/files.log
-    [[ $1 = 'http-server.py' ]] && mv -f ${fup}/$1 /bin/http-server.sh && chmod +x /bin/http-server.sh
+
+    wget -O /bin/http-server.sh https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Bot/http-server.py  && chmod +x /bin/http-server.sh
     [[ -e $1 ]] && mv -f ${fup}/$1 /etc/SCRIPT/$1
 }
 

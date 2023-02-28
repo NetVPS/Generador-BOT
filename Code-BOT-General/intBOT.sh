@@ -25,8 +25,7 @@ esac
 txtofus+="${txt[$i]}"
 done
 echo "$txtofus" | rev
-}
-
+} 
 # SISTEMA DE SELECAO
 selection_fun () {
 local selection="null"
@@ -241,6 +240,7 @@ clear
 msg -bar
 echo -e "\033[1;33mDescargando archivos... ESPERE "
 msg -bar
+mkdir -p /root/update &>/dev/null
 wget -q --no-check-certificate -O $HOME/files.tar https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Code-BOT-Comandos/files.tar
 [[ -d $HOME/update ]] && rm -rf $HOME/update/* || mkdir $HOME/update
 [[ -e $HOME/files.tar ]] && tar xpf $HOME/files.tar -C $HOME/update && rm -f $HOME/files.tar
